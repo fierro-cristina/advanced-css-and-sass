@@ -9,60 +9,7 @@ html {
   font-size: 62%; }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 800;
-  font-size: 1.6rem;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
   box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, #55c57a, #28b485), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative; }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
-
-.heading-primary {
-  color: white;
-  text-transform: uppercase;
-  /* This determines whether the back part of the element is visible to the user.
-  This is used to fix the little "shaking" after the animation */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.7rem;
-  animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   0% {
@@ -92,8 +39,37 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* This determines whether the back part of the element is visible to the user.
+    This is used to fix the little "shaking" after the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveInRight 1s ease-out; }
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -105,13 +81,16 @@ body {
 .btn:hover {
   transform: translate(0, -3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translate(0, -1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
-  background-color: white;
+  background-color: #fff;
   color: #777; }
 
 .btn::after {
@@ -127,12 +106,64 @@ body {
   transition: all 0.4s; }
 
 .btn-white::after {
-  background-color: white; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
+  background-color: #fff; }
 
 .btn--animated {
   animation: fadeUp 0.5s ease-out 0.75s;
   animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, #55c57a, #28b485), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  background-color: white; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+
+::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+[class^="column-"] {
+  background-color: orangered;
+  float: left; }
+  [class^="column-"]:not(:last-child) {
+    margin-right: 6rem; }
+
+.column-1-of-2 {
+  width: calc((100% - 6rem) / 2); }
+
+.column-1-of-3 {
+  width: calc((100% - 2 * 6rem) / 3); }
+
+.column-2-of-3 {
+  width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+
+.column-1-of-4 {
+  width: calc((100% - 3 * 6rem) / 4); }
+
+.column-2-of-4 {
+  width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+
+.column-3-of-4 {
+  width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
